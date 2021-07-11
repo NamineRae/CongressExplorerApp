@@ -37,5 +37,11 @@ let finalArray = [];
     return finalArray
 }
 
+//set chosen data array 
 let simpleCongressPeople = simplifyCongress(representatives, senators);
+
 console.log(simpleCongressPeople)
+
+
+//seniority sorting function
+const congressGrid = document.querySelector('#congressGrid');
