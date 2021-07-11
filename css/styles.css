@@ -20,8 +20,18 @@
     margin: 2px;
     box-shadow: 2px 2px rgba(82, 82, 117, 0.7);
 }
+/*got the box shadow and help on fonts from w3 schools*/
 
+/*styling for the profile pictures*/
 .profilePic {
     margin-top: 20px;
  box-shadow: 10px 10px rgba(82, 82, 117, 0.7);
+}
+
+/*styling for the div containing the profile*/ 
+.congressPerson {
+    background-color: palegreen;
+    width: 150px;
+    padding-left: 25px;
+    padding-bottom: 1px;
 }
