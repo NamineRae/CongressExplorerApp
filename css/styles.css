@@ -30,6 +30,9 @@
 
 /*styling for the div containing the profile*/ 
 .congressPerson {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     background-color: palegreen;
     width: 150px;
     padding-left: 25px;
