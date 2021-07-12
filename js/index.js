@@ -65,7 +65,7 @@ function createTextNode(text) {
 }
 
 //grab div location, get info, append it
-const congressGrid = document.querySelector('#congressGrid');
+const congressGrid = selectElement('#congressGrid');
 
 let personDiv = createElement('div');
 let personText = createTExtNode(simpleCongressPeople[0].fullName)
@@ -79,9 +79,32 @@ appendElement(personDiv, personText)
 
 appendElement(congressGrid, personImg)
 
+function renderCongress(congressArray, mainElement) {
+    
+    //create html structure
+
+    //append that structure to a parent div
+}
+
 //sort by seinority
-let sortedCongress = simpleCongressPeople.sort((a, b) => {
-    return b.seniority - a.seniority
-})
+let sortBySenority(congressArray) {
+return congressArray.sort((a, b) => b.seniority - a.seniority)
+} 
 
 console.log(sortedCongress)
+console.log(simpleCongressPeople)
+
+let orgArr = simplifyCongress(representatives, senators);
+
+console.log(orgArr)
+
+//more div/info stuff? I'm kina lost at this point...
+const congressGrid = selectElement('#congressGrid');
+const sortButton = selectElement('#sortBySen')
+
+sortButton.addEventListener('click', () => {
+    let sortedCongress = sortBySenority(simpleCongressPeople)
+    renderCongress(sortedCongress)
+})
+
+//I've gone through all of my notes on how to do this and its still a mess. I don't know how to fix it.
