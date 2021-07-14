@@ -1,5 +1,5 @@
-import {senators} from '.senators'
-import {representatives} from '.representatives'
+import {senators} from './senators.js'
+import {representatives} from './representatives.js'
 
 //combine the data in senators.js and represntatives.js
 function simplifyCongress(reps, sens) {
@@ -9,31 +9,29 @@ let finalArray = [];
     //combine the arrays
     reps.forEach((rep) => {
         
-
         //info we want
         let simpleRep = {
-            fullName: ${rep.first_name} ${rep.last_name},
-            shortTitle: rep.short_title;
-            seniority: rep.seniority;
-            imgUrl: https://www.govtrack.us/static/legislator-photos/${rep.govtrack_id}-100px.jpeg
-        })
+            fullName: `${rep.first_name} ${rep.last_name}`,
+            shortTitle: rep.short_title,
+            seniority: rep.seniority,
+            imgUrl: `https://www.govtrack.us/static/legislator-photos/${rep.govtrack_id}-100px.jpeg`
+        }
 
     finalArray.push(simpleRep)
-    }
+    })
 
-    sens.forEach((rep) => {
+    sens.forEach((sen) => {
         
-
         //info we want
         let simpleSen = {
-            fullName: ${sen.first_name} ${sen.last_name},
-            shortTitle: sen.short_title;
-            seniority: sen.seniority;
-            imgUrl: https://www.govtrack.us/static/legislator-photos/${sen.govtrack_id}-100px.jpeg
-        })
+            fullName: `${sen.first_name} ${sen.last_name}`,
+            shortTitle: sen.short_title,
+            seniority: sen.seniority,
+            imgUrl: `https://www.govtrack.us/static/legislator-photos/${sen.govtrack_id}-100px.jpeg`
+        }
 
     finalArray.push(simpleSen)
-    }
+    })
 
     //return the final array
     return finalArray
@@ -65,34 +63,38 @@ function createTextNode(text) {
 }
 
 //grab div location, get info, append it
-const congressGrid = selectElement('#congressGrid');
 
-let personDiv = createElement('div');
-let personText = createTExtNode(simpleCongressPeople[0].fullName)
 
-let personImg = createElement('img');
-personImg.setAttribute('src', simpleCongressPeople[0].imgUrl)
+function renderCongress(congressArray, congressGrid) {
 
-console.log(personImg)
+    // <div class="congressPerson">
+    //     <img class="profilePic" src="https://www.govtrack.us/static/legislator-photos/300002-100px.jpeg" alt="profilePic">
+    //     <h3>Lamar Alexander</h3>
+    // </div>
+    //rebuild this structure inside the loop
 
-appendElement(personDiv, personText)
+    congressArray.forEach((person) => {
 
-appendElement(congressGrid, personImg)
+        let personDiv = createElement('div');
+        let personText = createTextNode(person.fullName)
+        
+        let personImg = createElement('img');
+        personImg.setAttribute('src', person.imgUrl)
+        
+        console.log(personImg)
+        
+        appendElement(personDiv, personText)
 
-function renderCongress(congressArray, mainElement) {
-    
-    //create html structure
-
-    //append that structure to a parent div
+        appendElement(congressGrid, personDiv)
+        appendElement(congressGrid, personImg)
+    });
 }
 
+
 //sort by seinority
-let sortBySenority(congressArray) {
+function sortBySenority(congressArray) {
 return congressArray.sort((a, b) => b.seniority - a.seniority)
 } 
-
-console.log(sortedCongress)
-console.log(simpleCongressPeople)
 
 let orgArr = simplifyCongress(representatives, senators);
 
@@ -101,6 +103,8 @@ console.log(orgArr)
 //more div/info stuff? I'm kina lost at this point...
 const congressGrid = selectElement('#congressGrid');
 const sortButton = selectElement('#sortBySen')
+
+renderCongress(orgArr, congressGrid)
 
 sortButton.addEventListener('click', () => {
     let sortedCongress = sortBySenority(simpleCongressPeople)

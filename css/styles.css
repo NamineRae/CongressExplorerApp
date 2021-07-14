@@ -30,11 +30,13 @@
 
 /*styling for the div containing the profile*/ 
 .congressPerson {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     background-color: palegreen;
     width: 150px;
     padding-left: 25px;
     padding-bottom: 1px;
 }
+
+/*display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    put this in congress grid*/
