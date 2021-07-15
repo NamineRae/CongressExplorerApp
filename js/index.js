@@ -87,6 +87,10 @@ function renderCongress(congressArray, congressGrid) {
 
         appendElement(congressGrid, personDiv)
         appendElement(congressGrid, personImg)
+
+        //let congressPerson = createElement('div');
+        //let profilePic = createElement('img');
+        // profilePic.setAttribute('src', person.imgUrl)
     });
 }
 

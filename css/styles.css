@@ -28,15 +28,18 @@
  box-shadow: 10px 10px rgba(82, 82, 117, 0.7);
 }
 
+.congressArray {
+    margin-top: 20px;
+ box-shadow: 10px 10px rgba(82, 82, 117, 0.7);
+}
+
 /*styling for the div containing the profile*/ 
-.congressPerson {
+#congressGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     background-color: palegreen;
     width: 150px;
     padding-left: 25px;
     padding-bottom: 1px;
 }
-
-/*display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    put this in congress grid*/
